@@ -17,19 +17,6 @@ class Employee(object):
             print(err)
             return None
 
-    def to_xml_string(self):
-        elem = Element('employee')
-        for key, val in self.__dict__.items():
-            child = Element(key)
-            child.text = val
-            elem.append(child)
-        return tostring(elem)
-
-    def from_xml_string(self, xml_string):
-        xml = fromstring(xml_string)
-        d = xmljson.yahoo.data(xml)
-        return self.from_dict(dict(d['employee']))
-
     def __repr__(self):
         return str(self.name) + ' ' + str(self.surname) + ' ' + str(self.department) + ' ' + str(self.salary)
 
