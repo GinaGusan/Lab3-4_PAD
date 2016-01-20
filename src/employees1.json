@@ -1,0 +1,38 @@
+{"employees": [
+  {
+    "name": "John",
+    "surname": "Smith",
+    "department": "PR",
+    "salary": 3000
+  },
+  {
+    "name": "Anne",
+    "surname": "Brown",
+    "department": "HR",
+    "salary": 2100
+  },
+  {
+    "name": "Sabine",
+    "surname": "Turner",
+    "department": "PR",
+    "salary": 2600
+  },
+  {
+    "name": "Robert",
+    "surname": "Mitchell",
+    "department": "PR",
+    "salary": 2600
+  },
+  {
+    "name": "Eliza",
+    "surname": "Butler",
+    "department": "HR",
+    "salary": 2600
+  },
+  {
+    "name": "Jack",
+    "surname": "Lewis",
+    "department": "CR",
+    "salary": 2900
+  }
+]}

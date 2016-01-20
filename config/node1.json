@@ -1,0 +1,5 @@
+{
+  "myLocation": 5000,
+  "neighbours": [5001, 5002],
+  "empLocation": "src/employees1.json"
+}

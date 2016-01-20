@@ -1,0 +1,26 @@
+{"employees": [
+  {
+    "name": "David",
+    "surname": "Young",
+    "department": "CR",
+    "salary": 2500
+  },
+  {
+    "name": "Daniel",
+    "surname": "Harris",
+    "department": "CR",
+    "salary": 2600
+  },
+  {
+    "name": "Hellen",
+    "surname": "Green",
+    "department": "CR",
+    "salary": 2500
+  },
+  {
+    "name": "Edward",
+    "surname": "Colin",
+    "department": "CR",
+    "salary": 2000
+  }
+]}
