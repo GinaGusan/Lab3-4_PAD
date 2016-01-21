@@ -21,6 +21,8 @@ class Employee(object):
         elem = Element('employee')
         for key, val in self.__dict__.items():
             child = Element(key)
+            if key == 'salary':
+                val = str(val)
             child.text = val
             elem.append(child)
         return tostring(elem)
@@ -28,7 +30,31 @@ class Employee(object):
     def from_xml_string(self, xml_string):
         xml = fromstring(xml_string)
         d = xmljson.yahoo.data(xml)
-        return self.from_dict(dict(d['employee']))
+        tmp = self.from_dict(dict(d['employee']))
+        tmp.salary = float(tmp.salary)
+        return tmp
+
+    def list_to_xml_string(self, list_emp):
+        root = Element('employees')
+        for emp in list_emp:
+            elem = Element('employee')
+            for key, val in emp.__dict__.items():
+                child = Element(key)
+                if key == 'salary':
+                    val = str(val)
+                child.text = val
+                elem.append(child)
+            root.append(elem)
+        return tostring(root)
+
+    def xml_string_to_list(self, xml_string):
+        xml = fromstring(xml_string)
+        d = xmljson.yahoo.data(xml)
+        # print(d['employees']['employee'])
+        tmp = list(map((lambda x: self.from_dict(x)), d['employees']['employee']))
+        for x in tmp:
+            x.salary = float(x.salary)
+        return tmp
 
     def __repr__(self):
         return str(self.name) + ' ' + str(self.surname) + ' ' + str(self.department) + ' ' + str(self.salary)
