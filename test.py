@@ -19,4 +19,17 @@ json_string = json.dumps(Employee().from_xml_string(xml_string).__dict__)
 
 print(json_string)
 
+emp1 = emp
+emp2 = Employee(name='name2', surname='surname2', salary='2', department='department2')
+
+emps = [emp1, emp2]
+
+# my_str = ''
+#
+# for e in emps:
+#     my_str += e.to_xml_string().decode()
+#
+# print(my_str)
+
+print(Employee().list_to_xml_string(emps))
 

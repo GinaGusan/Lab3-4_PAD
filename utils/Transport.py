@@ -24,9 +24,7 @@ class TransportListener(object):
             print('Socket error', err.args[1])
 
     def processRequest(self, client_sock):
-        dict_employees = json.loads(open(self.empLocation).read())['employees']
-        em = Employee()
-        employees = [em.from_dict(emp) for emp in dict_employees]
+        employees = json.loads(open(self.empLocation).read())['employees']
 
         caller = client_sock.recv(256)
         print('Received transport request from ', caller)
@@ -41,8 +39,13 @@ class TransportListener(object):
                     if employee not in employees:
                         employees.append(employee)
                 # employees += new_employees
+            em = Employee()
+            print(employees[0])
+            new_employees = [em.from_dict(emp) for emp in employees]
+            pickled_data = pickle.dumps(em.list_to_xml_string(new_employees))
+        else:
+            pickled_data = pickle.dumps(employees)
 
-        pickled_data = pickle.dumps(employees)
         client_sock.send(pickled_data)
         client_sock.close()
 

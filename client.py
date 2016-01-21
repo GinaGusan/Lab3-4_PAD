@@ -20,10 +20,12 @@ class Client(object):
         print('First node is: ', maven_location)
 
         self.transClient.setLocation(maven_location)
-        employees = self.transClient.getEmployees(b'client')
+        xml_employees = self.transClient.getEmployees(b'client')
 
-        print(len(employees))
-        print(employees)
+        print(Employee().xml_string_to_list(xml_employees))
+
+        # print(len(employees))
+        # print(employees)
 
         # salaries = list(map((lambda x: x['Employee']['salary']), employees))
         # salaries2 = [x['Employee']['salary'] for x in employees]
