@@ -20,9 +20,8 @@ class Client(object):
         print('First node is: ', maven_location)
 
         self.transClient.setLocation(maven_location)
-        xml_employees = self.transClient.getEmployees(b'client')
-
-        print(Employee().xml_string_to_list(xml_employees))
+        employees = self.transClient.getEmployees(b'client')
+        print (employees)
 
         # print(len(employees))
         # print(employees)
